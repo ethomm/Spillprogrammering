@@ -41,7 +41,7 @@ public class Forsvarselement : MonoBehaviour {
 	void SkytProsjektil(){
 		nesteSkudd = Time.time + reloadTime;
 		nesteBevegelse = Time.time + skytePause;
-		Instantiate (prosjektil, Fe_Tower_Muzzle);
+		//Instantiate (prosjektil, Fe_Tower_Muzzle);
 	
 	}
 
