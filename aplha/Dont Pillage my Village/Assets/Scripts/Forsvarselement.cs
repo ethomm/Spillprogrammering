@@ -22,9 +22,6 @@ public class Forsvarselement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (towerTarget)
-				if (Time.time >= nesteBevegelse)
-						CalculateAimPosition (towerTarget.position);
-						skyteRettning.rotation = Quaternion.Lerp (skyteRettning.rotation, bevegelsesRadius, Time.deltaTime * turnSpeed);
 				if(Time.time >=nesteSkudd)
 						SkytProsjektil();
 	}
@@ -39,16 +36,12 @@ public class Forsvarselement : MonoBehaviour {
 		if (other.gameObject.transform == towerTarget)
 						towerTarget = null;
 	}
-
-	void CalculateAimPosition(Vector3 targetPos){
-		//float siktepunkt = Vector3 (targetPos.x, targetPos.y, targetPos.z);
-		//bevegelsesRadius = Quaternion.LookRotation (siktepunkt);
-	}
+	
 
 	void SkytProsjektil(){
 		nesteSkudd = Time.time + reloadTime;
 		nesteBevegelse = Time.time + skytePause;
-		Instantiate (prosjektil);
+		Instantiate (prosjektil, Fe_Tower_Muzzle);
 	
 	}
 
